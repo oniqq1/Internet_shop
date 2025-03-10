@@ -1,7 +1,13 @@
 from flask import request , flash
 
-
 from start_app import app
+
+
+
+
+
+
+
 
 @app.get('/registration/')
 def registration():

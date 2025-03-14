@@ -103,4 +103,3 @@ def add_to_table(name,email,password,rule='user'):
     except sqlite3.Error as error:
         print(error)
 
-create_table()

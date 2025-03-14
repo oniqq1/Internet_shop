@@ -12,9 +12,10 @@ def create_table():
 
         sqlite_query_create_table = '''CREATE TABLE users
                                         ( id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                         name TEXT ,
+                                         name TEXT UNIQUE NOT NULL ,
                                          email TEXT NOT NULL UNIQUE,
-                                         password TEXT NOT NULL)
+                                         password TEXT NOT NULL,
+                                         rule TEXT NOT NULL)
                                          '''
         cursor.execute(sqlite_query_create_table)
         sql_con.commit()
@@ -34,17 +35,69 @@ def drop_table():
     except sqlite3.Error as error:
         print(error)
 
-def add_to_table(name,email,password):
+def check_email(email):
+    try:
+        sql_con, cursor = do_connect()
+
+        sqlite_query_check_table = '''SELECT * FROM users WHERE email=?'''
+
+
+        cursor.execute(sqlite_query_check_table,(email,))
+        sql_con.commit()
+        return cursor.fetchall()
+    except sqlite3.Error as error:
+        print(error)
+
+def check_name(name):
+    try:
+        sql_con, cursor = do_connect()
+
+        sqlite_query_check_table = '''SELECT * FROM users WHERE name=?'''
+
+
+        cursor.execute(sqlite_query_check_table,(name,))
+        sql_con.commit()
+        return cursor.fetchall()
+    except sqlite3.Error as error:
+        print(error)
+
+def check_rule(name):
+    try:
+        sql_con, cursor = do_connect()
+
+        sqlite_query_check_table = '''SELECT rule FROM users WHERE name=?'''
+
+
+        cursor.execute(sqlite_query_check_table,(name,))
+        sql_con.commit()
+        return cursor.fetchone()
+    except sqlite3.Error as error:
+        print(error)
+
+def get_password(name):
+    try:
+        sql_con, cursor = do_connect()
+
+        sqlite_query_check_table = '''SELECT password FROM users WHERE name=?'''
+
+
+        cursor.execute(sqlite_query_check_table,(name,))
+        sql_con.commit()
+        return cursor.fetchone()
+    except sqlite3.Error as error:
+        print(error)
+
+def add_to_table(name,email,password,rule='user'):
     try:
         sql_con, cursor = do_connect()
 
         sqlite_query_add_table = '''INSERT INTO users
-                                        (name,email,password)
+                                        (name,email,password,rule)
                                         VALUES
-                                        (?,?,?)'''
+                                        (?,?,?,?)'''
 
 
-        cursor.execute(sqlite_query_add_table,(name,email,password,))
+        cursor.execute(sqlite_query_add_table,(name,email,password,rule,))
         sql_con.commit()
         print('Add in to table')
     except sqlite3.Error as error:

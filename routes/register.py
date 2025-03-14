@@ -1,27 +1,29 @@
-from flask import request, flash, render_template
+from flask import request, abort, render_template
 
-from start_app import app
+from routes import app
 
-from models.users import add_to_table
+from models.users import add_to_table ,check_email
 
 from auth import hash_password
 
 from flask import redirect
 
 
-@app.get('/registration/')
+@app.get('/reg/')
 def registration_get():
     return render_template('registration.html')
 
-@app.post('/registration/')
+@app.post('/reg/')
 def registration_post():
     name = request.form['name']
     email = request.form['email']
     password = request.form['password']
 
-    if not name or not email or not password:
-        flash("Name or email or password are not exist")
+    if email == None:
+        return render_template('registration.html')
 
-    add_to_table(name,email, hash_password(password))
+    if check_email(email) == []:
+        add_to_table(name,email, hash_password(password))
 
-    redirect("log_in.html")
+        return render_template('log_in.html')
+    return render_template('registration.html')

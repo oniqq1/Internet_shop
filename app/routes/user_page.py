@@ -1,11 +1,8 @@
-from flask import render_template
 from flask_login import login_required
 
-from flask import render_template
+from app import app
 
-from routes import app
-
-from models.users import check_user_by_name
+from app.models.users import check_user_by_name
 
 
 

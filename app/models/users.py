@@ -1,30 +1,7 @@
 import sqlite3
 
+from connection import do_connect
 
-
-def do_connect():
-    sql_con = sqlite3.connect("users.db")
-    cursor = sql_con.cursor()
-
-    return sql_con , cursor
-
-def create_table():
-    try:
-        sql_con, cursor = do_connect()
-
-        sqlite_query_create_table = '''CREATE TABLE users
-                                        ( id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                         name TEXT UNIQUE NOT NULL ,
-                                         email TEXT NOT NULL UNIQUE,
-                                         password TEXT NOT NULL,
-                                         rule TEXT NOT NULL,
-                                         photo TEXT NOT NULL)
-                                         '''
-        cursor.execute(sqlite_query_create_table)
-        sql_con.commit()
-        print('Table created')
-    except sqlite3.Error as error:
-        print(error)
 
 def drop_table():
     try:
@@ -121,4 +98,3 @@ def add_to_table(name,email,password,rule='user',photo='https://i.pinimg.com/736
     except sqlite3.Error as error:
         print(error)
 
-create_table()

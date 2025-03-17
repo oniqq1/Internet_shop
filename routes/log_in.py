@@ -7,6 +7,7 @@ from models.users import check_name , get_password , check_rule
 from routes import app
 
 
+
 @app.get('/log_in/')
 def log_get():
     return render_template('log_in.html')

@@ -1,4 +1,4 @@
-from flask import request, abort, render_template
+from flask import request,  render_template
 
 from routes import app
 
@@ -6,7 +6,7 @@ from models.users import add_to_table ,check_email
 
 from auth import hash_password
 
-from flask import redirect
+
 
 
 @app.get('/reg/')

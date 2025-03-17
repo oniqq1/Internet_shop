@@ -87,6 +87,19 @@ def get_password(name):
     except sqlite3.Error as error:
         print(error)
 
+def get_id(name):
+    try:
+        sql_con, cursor = do_connect()
+
+        sqlite_query_check_table = '''SELECT id FROM users WHERE name=?'''
+
+
+        cursor.execute(sqlite_query_check_table,(name,))
+        sql_con.commit()
+        return cursor.fetchone()
+    except sqlite3.Error as error:
+        print(error)
+
 def add_to_table(name,email,password,rule='user'):
     try:
         sql_con, cursor = do_connect()

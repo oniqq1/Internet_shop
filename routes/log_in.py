@@ -1,6 +1,6 @@
-from flask import request,  render_template , redirect
+from flask import request,  render_template
 
-from auth import check_password , hash_password
+from auth import check_password
 
 from models.users import check_name , get_password , check_rule
 

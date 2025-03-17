@@ -2,7 +2,7 @@ from flask import request,  render_template
 
 from routes import app
 
-from models.users import add_to_table ,check_email
+from models.users import add_to_table ,check_user_by_email
 
 from auth import hash_password
 
@@ -22,7 +22,7 @@ def registration_post():
     if email == None:
         return render_template('registration.html')
 
-    if check_email(email) == []:
+    if check_user_by_email(email) == []:
         add_to_table(name,email, hash_password(password))
 
         return render_template('log_in.html')

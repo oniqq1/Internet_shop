@@ -15,4 +15,4 @@ def user_page_get(name:str):
     if check_user_by_name(name):
         return "all good"
     else:
-        return "You haven't an account"
+        return "No such account"

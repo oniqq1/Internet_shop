@@ -17,11 +17,12 @@ def log_in_post():
     password = request.form['password']
 
     user_data = check_user_by_name(name)[0]
-
+    print(user_data[1] , user_data[3])
 
     if name in user_data:
-
-        if check_password(get_password(name),password):
+        print(password)
+        print(get_password(name))
+        if check_password(password,user_data[3]):
             session['name'] = name
             session['email'] = user_data[2]
 
@@ -70,7 +71,12 @@ def sign_up_post():
     except sqlite3.Error as error:
         print(error)
 
-
+@app.get('/test/')
+def test():
+    print(session.get('name'))
+    if session.get('name') in check_user_by_name(session.get('name')):
+        return "good"
+    return "bad"
 
 @app.get('/log_out/')
 def log_out_get():
@@ -88,4 +94,5 @@ def hash_password(password):
     return hashed
 
 def check_password(password , hashed):
-    return bcrypt.checkpw(password.encode(),hashed)
+    return bcrypt.checkpw(password.encode(), hashed)
+

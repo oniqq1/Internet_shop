@@ -1,10 +1,9 @@
 import sqlite3
 import bcrypt
 from app import app
-from flask import render_template , request
+from flask import render_template , request ,session
 from ..models.users import check_user_by_name , get_password , add_to_table
-from ..models import User
-from flask_login import login_user
+
 from connection import do_connect
 
 
@@ -25,14 +24,12 @@ def log_in_post():
 
     user_data = check_user_by_name(name)[0]
 
-    user_object = User(id=user_data[0],username=user_data[1],gmail=user_data[2],password=user_data[3],rule=user_data[4],photo=user_data[5])
 
-    login_user(user_object,remember=True)
 
 
 @app.get('/sign_up/')
 def sign_up_get():
-    print('hello')
+
     return render_template('sign_up.html')
 
 @app.post('/sign_up/')
@@ -69,14 +66,10 @@ def sign_up_post():
 
     add_to_table(name, email, hash)
 
-    user_in_db = check_user_by_name(name)[0]
-    print(user_in_db)
-    print(user_in_db[0])
 
-    user_new = User(id=user_in_db[0], name=user_in_db[1],email=user_in_db[2], password=user_in_db[3],
-                    rule=user_in_db[4], photo=user_in_db[5])
+    session['name'] = name
+    session['email'] = email
 
-    login_user(user_new)
 
     return 'registered'
 

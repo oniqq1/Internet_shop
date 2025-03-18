@@ -16,32 +16,39 @@ def log_in_post():
     name = request.form['name']
     password = request.form['password']
 
-    if not check_user_by_name(name):
-        return 'error'
-
-    if not check_password(get_password(name),password):
-        return 'error'
-
     user_data = check_user_by_name(name)[0]
+
+
+    if name in user_data:
+
+        if check_password(get_password(name),password):
+            session['name'] = name
+            session['email'] = user_data[2]
+
+            return render_template('index.html')
+
+
+
+
 
 
 
 
 @app.get('/sign_up/')
 def sign_up_get():
-
     return render_template('sign_up.html')
 
 @app.post('/sign_up/')
 def sign_up_post():
-    print('in')
+
     name = request.form['name']
     email = request.form['email']
     password = request.form['password']
 
-    if not name and password and email:
+    if not name or not password or not email:
         return render_template('sign_up.html')
-    print('check complete')
+
+
 
     try:
         connection , cursor = do_connect()
@@ -49,33 +56,30 @@ def sign_up_post():
         user = cursor.fetchone()
         connection.close()
         print(user)
+        if not email in user:
+            hash = hash_password(password)
 
-        if user:
+            add_to_table(name, email, hash)
 
-            if not email == user[2]:
+            session['name'] = name
+            session['email'] = email
 
-                return render_template('sign_up.html')
-
-
-
-
+            return render_template('index.html')
+        else:
+            return render_template('sign_up.html')
     except sqlite3.Error as error:
         print(error)
 
-    hash = hash_password(password)
 
-    add_to_table(name, email, hash)
-
-
-    session['name'] = name
-    session['email'] = email
-
-
-    return 'registered'
 
 @app.get('/log_out/')
-def log_out():
-    pass
+def log_out_get():
+    return render_template('log_out.html')
+
+@app.post('/log_out/')
+def log_out_post():
+    session.clear()
+    return render_template('index.html')
 
 
 def hash_password(password):

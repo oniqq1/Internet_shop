@@ -10,4 +10,4 @@ def user_page_get(name:str):
         if check_user_by_name(name):
             return render_template('user_page.html',data=check_user_by_name(name))
         else:
-            return "No such account"
+            return render_template('No such account')

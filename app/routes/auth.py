@@ -30,7 +30,9 @@ def log_in_post():
 
 
 
-
+@app.get('/register/')
+def register():
+    return render_template('register.html')
 
 
 

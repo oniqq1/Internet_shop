@@ -1,6 +1,6 @@
 import sqlite3
 
-from flask import Flask, session
+from flask import Flask
 
 from secret import key
 from connection import create_table

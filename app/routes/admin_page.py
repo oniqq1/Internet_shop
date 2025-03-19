@@ -1,20 +1,17 @@
-from flask_login import login_required
 
-from flask import render_template
+
+from flask import render_template, session
 
 from app import app
 
-from app.models.users import check_user_by_name , check_rule
+from app.models.users import check_user_by_name
 
 
 
 @app.get('/user/<name>/')
-@login_required
 def admin_page_get(name:str):
-    if check_user_by_name(name):
-        if check_rule(name) == 'admin':
+    if session.get('name') in check_user_by_name(session.get('name')):
+        if check_user_by_name(name).get('rule') == 'admin':
             return render_template('admin_page.html')
         else:
-            return 'You are not admin'
-    else:
-        return "You haven't an account"
+            return render_template('index.html')

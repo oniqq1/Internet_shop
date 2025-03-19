@@ -24,7 +24,15 @@ def check_user_by_email(email):
 
         cursor.execute(sqlite_query_check_table,(email,))
         sql_con.commit()
-        return cursor.fetchall()
+        data_list = cursor.fetchall()
+        data_dict = {}
+        data_dict['id'] = data_list[0]
+        data_dict['name'] = data_list[1]
+        data_dict['email'] = data_list[2]
+        data_dict['password'] = data_list[3]
+        data_dict['rule'] = data_list[4]
+        data_dict['photo'] = data_list[5]
+        return data_dict
     except sqlite3.Error as error:
         print(error)
 
@@ -39,7 +47,15 @@ def check_user_by_name(name):
 
         cursor.execute(sqlite_query_check_table,(name,))
         sql_con.commit()
-        return cursor.fetchall()
+        data_list = cursor.fetchall()
+        data_dict = {}
+        data_dict['id']=data_list[0]
+        data_dict['name']=data_list[1]
+        data_dict['email']=data_list[2]
+        data_dict['password']=data_list[3]
+        data_dict['rule']=data_list[4]
+        data_dict['photo']=data_list[5]
+        return data_dict
     except sqlite3.Error as error:
         print(error)
 

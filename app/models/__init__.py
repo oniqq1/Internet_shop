@@ -1,2 +1,2 @@
-from .user import *
+from .items import *
 from .users import *

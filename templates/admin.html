@@ -6,7 +6,7 @@
     <title>Add Products</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <link rel="stylesheet" href="admin.css">
+      <link rel="stylesheet" href="{{ url_for('static', filename= 'admin.css') }}">
 </head>
 <body>
 
@@ -24,15 +24,12 @@
             </div>
             <div class="input-field">
                 <input type="number" name="price" required>
-                <label for="price">Price</label>
+                <label for="cost">Price</label>
             </div>
             <div class="file-field input-field">
-                <div class="btn">
+                  <div class="btn">
                     <span>Upload</span>
-                    <input type="file" name="image">
-                </div>
-                <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
+                    <input type="link" name="photo">
                 </div>
             </div>
             <button class="btn waves-effect waves-light" type="submit">Add</button>

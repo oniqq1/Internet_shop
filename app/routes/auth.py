@@ -1,6 +1,6 @@
 import sqlite3
 import bcrypt
-from app import app ,session
+from app import app , session
 from flask import render_template , request  ,redirect
 from ..models.users import check_user_by_name , add_to_table
 
@@ -18,7 +18,10 @@ def log_in_post():
 
 
     user_data = check_user_by_name(name)
-    print(user_data)
+    print(user_data , '     user_Data')
+    if user_data == None:
+        return redirect('/')
+
 
     print(check_password(password, user_data.get('password')))
 
@@ -30,7 +33,7 @@ def log_in_post():
         session['email'] = user_data.get('email')
         session['password'] = user_data.get('password')
         print(session.get('name'))
-        return redirect('/main/')
+        return redirect('/')
 
 
 
@@ -72,7 +75,7 @@ def sign_up_post():
             session['name'] = name
             session['email'] = email
             session['password'] = hash
-            return redirect('/main/')
+            return redirect('/')
         else:
             return render_template('sign_up.html')
     except sqlite3.Error as error:
@@ -92,7 +95,7 @@ def log_out_get():
 @app.post('/log_out/')
 def log_out_post():
     session.clear()
-    return redirect('/main/')
+    return redirect('/')
 
 
 def hash_password(password):

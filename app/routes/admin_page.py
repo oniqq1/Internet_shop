@@ -1,8 +1,6 @@
+from flask import render_template
 
-
-from flask import render_template, session
-
-from app import app
+from app import app ,session
 
 from app.models.users import check_user_by_name
 

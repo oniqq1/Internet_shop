@@ -15,8 +15,8 @@
             <a href="/" class="brand-logo"> Shop</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="#">Catalogue</a></li>
-                <li><a href="/reg">Registration</a></li>
-                <li><a href="#">xz2</a></li>
+                <li><a href="/register">Registration</a></li>
+                <li><a href="/user/{{ session.get('name') }}">{{ session.get('name') }}</a></li>
             </ul>
         </div>
     </nav>

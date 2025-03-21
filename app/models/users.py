@@ -25,6 +25,7 @@ def check_user_by_email(email):
         cursor.execute(sqlite_query_check_table,(email,))
         sql_con.commit()
         data_list = cursor.fetchall()
+        data_list = data_list[0]
         data_dict = {}
         data_dict['id'] = data_list[0]
         data_dict['name'] = data_list[1]
@@ -49,6 +50,7 @@ def check_user_by_name(name):
         sql_con.commit()
         data_list = cursor.fetchall()
         data_dict = {}
+        data_list = data_list[0]
         data_dict['id']=data_list[0]
         data_dict['name']=data_list[1]
         data_dict['email']=data_list[2]

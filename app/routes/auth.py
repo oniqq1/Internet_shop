@@ -56,7 +56,7 @@ def sign_up_post():
     try:
         connection , cursor = do_connect()
         cursor.execute("SELECT * FROM users WHERE email = ?", (email,))
-        user = cursor.fetchone()
+        user = cursor.fetchall()
         connection.close()
         print(user)
         if not email in user:

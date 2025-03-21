@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <link rel="stylesheet" href="logout.css">
+    <title>logout</title>
+</head>
+<body>
+    <div class="confirmation">
+        <h2>Are you sure you want to log out?</h2>
+        <div class="buttons">
+            <form action="/logout" method="POST">
+                <button type="submit" name="exit" value="yes">Yes</button>
+            </form>
+            <a href="/"><button>No</button></a>
+        </div>
+    </div>
+</body>
+</html>

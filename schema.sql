@@ -1,7 +1,16 @@
-                                        CREATE TABLE users
-                                        ( id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                         name TEXT UNIQUE NOT NULL ,
-                                         email TEXT NOT NULL UNIQUE,
-                                         password TEXT NOT NULL,
-                                         rule TEXT NOT NULL,
-                                         photo TEXT NOT NULL);
+CREATE TABLE users
+( id INTEGER PRIMARY KEY AUTOINCREMENT,
+name TEXT UNIQUE NOT NULL ,
+email TEXT NOT NULL UNIQUE,
+password TEXT NOT NULL,
+rule TEXT NOT NULL,
+photo TEXT NOT NULL);
+
+
+CREATE TABLE items
+( id INTEGER PRIMARY KEY AUTOINCREMENT,
+name TEXT UNIQUE NOT NULL ,
+description TEXT NOT NULL ,
+category TEXT NOT NULL,
+cost INTEGER NOT NULL,
+photo TEXT NOT NULL);

@@ -17,10 +17,7 @@ def main():
         if not rand in nums:
             items.append(get_item_by_id(rand))
             nums.append(rand)
-    print('######')
-    print(nums)
-    print('######')
-    print(items)
+
 
     if session.get('name') == None:
         return render_template('index.html', img='https://i.pinimg.com/736x/59/af/9c/59af9cd100daf9aa154cc753dd58316d.jpg', item1=items[0], item2=items[1], item3=items[2])

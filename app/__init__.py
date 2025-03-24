@@ -10,10 +10,9 @@ app = Flask(__name__,template_folder='../templates',static_folder='../static')
 app.secret_key = key
 session = session
 
+
+
 try:
     create_table()
 except sqlite3.Error as error:
     print(error)
-
-
-

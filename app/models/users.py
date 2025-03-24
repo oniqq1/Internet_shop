@@ -115,14 +115,29 @@ def add_to_table(name,email,password,rule='user',photo='https://i.pinimg.com/736
         sql_con, cursor = do_connect()
 
         sqlite_query_add_table = '''INSERT INTO users
-                                        (name,email,password,rule,photo)
+                                        (name,email,password,rule,photo,busket)
                                         VALUES
-                                        (?,?,?,?,?)'''
+                                        (?,?,?,?,?,?)'''
 
 
-        cursor.execute(sqlite_query_add_table,(name,email,password,rule,photo,))
+        cursor.execute(sqlite_query_add_table,(name,email,password,rule,photo,''))
         sql_con.commit()
         print('Add in to table')
+    except sqlite3.Error as error:
+        print(error)
+
+def add_to_busket(name,item_id):
+    try:
+        sql_con, cursor = do_connect()
+
+        sqlite_query_add_to_bucket = '''UPDATE users
+                                    SET busket = busket || ?
+                                    WHERE name=?'''
+
+
+        cursor.execute(sqlite_query_add_to_bucket,(item_id,name))
+        sql_con.commit()
+        print('Add in to busket')
     except sqlite3.Error as error:
         print(error)
 

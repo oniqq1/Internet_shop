@@ -1,7 +1,7 @@
 from app import app ,session
 from flask import render_template ,redirect ,request
 from app.models.users import check_user_by_name
-from app.models.items import add_to_table
+from app.models.items import add_to_table , get_item_by_id
 
 
 @app.get('/user/<name>/')
@@ -19,12 +19,17 @@ def user_page_get(name:str):
     if not user == None:
 
         if session.get('name') == user.get('name'):
+            items_id = user.get('busket').split()
+            items = []
+            for id in items_id:
+                items.append(get_item_by_id(id))
+
             if user.get('rule') == 'admin':
-                return render_template('admin.html')
-            return render_template('home_page.html',user=user)
+                return render_template('admin.html', items=items)
+            return render_template('home_page.html',user=user , items=items)
 
         else:
-            return f"It isn't your account  <a href='/'>Go back</a>"
+            return f"It isn't your account  <a href='/'>Go back</a> "
 
     else:
         return "no such account"

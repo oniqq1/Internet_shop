@@ -45,12 +45,11 @@ def add_product_post():
         if user.get('rule') == 'admin':
             name = request.form['name']
             description = request.form['description']
-            # cost = request.form['cost']
-            # category = request.form['category']
+            cost = request.form['cost']
+            category = request.form['category']
             photo = request.form['photo']
 
-            add_to_table(name,description,cost=100,category=11,photo=photo)
+            add_to_table(name=name,description=description,cost=cost,category=category,photo=photo)
             return 'Has been added'
 
         return "You aren't administrator"
-    return 'helllo'

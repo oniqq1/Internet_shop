@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop </title>
+    <title>Shop</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+
     <nav>
         <div class="nav-wrapper container">
-            <a href="/" class="brand-logo"> Shop</a>
+            <a  class="brand-logo">Shop</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="#">Catalogue</a></li>
-                <li><a href="register_page.html">register</a></li>
-                <li><a href="#">xz2</a></li>
+                <li><a href="/register">Registration</a></li>
+                <li><a href="/user/{{ session.get('name') }}">{{ session.get('name') }}</a></li>
             </ul>
         </div>
     </nav>
@@ -25,56 +26,56 @@
     </div>
 
     <div class="container">
-        <h3 class="center" style="color: #5e432f;"> We recommend </h3>
+        <h3 class="center" style="color: #5e432f;">We recommend</h3>
         <div class="row">
             <div class="col s12 m6 l4">
                 <div class="card">
                     <div class="card-image">
-                        <img src="#">
+                        <img src="{{ item1.photo }}">
                     </div>
                     <div class="card-content">
-                        <p style="color: white">choto1</p>
+                        <p style="color: white">{{ item1.name }}</p>
                     </div>
                     <div class="card-action">
-                        <button class="btn btn-custom">buy</button>
+                        <a href="/item/{{ item1.id }}">buy</a>
                     </div>
                 </div>
             </div>
             <div class="col s12 m6 l4">
                 <div class="card">
                     <div class="card-image">
-                        <img src="#">
+                        <img src="{{ item2.photo }}">
                     </div>
                     <div class="card-content">
-                        <p style="color: white">choto2</p>
+                        <p style="color: white">{{ item2.name }}</p>
                     </div>
                     <div class="card-action">
-                        <button class="btn btn-custom ">buy</button>
+                        <a href="/item/{{ item2.id }}">buy</a>
                     </div>
                 </div>
             </div>
             <div class="col s12 m6 l4">
                 <div class="card">
                     <div class="card-image">
-                        <img src="#">
+                        <img src="{{ item3.photo }}">
                     </div>
                     <div class="card-content">
-                        <p style="color: white" >chtoto3</p>
+                        <p style="color: white">{{ item3.name }}</p>
                     </div>
                     <div class="card-action">
-                        <button class="btn btn-custom" >buy</button>
+                        <a href="/item/{{ item3.id }}">buy</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-        <footer class="page-footer" style="background-color: #6f4f37;">
+    <footer class="page-footer" style="background-color: #6f4f37;">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
                     <h5>About the shop</h5>
-                    <p>it is a second-semester project in GoIteens <br> frontend - chrczq <br> backend - oniqq1</p>
+                    <p>It is a second-semester project in GoIteens <br> frontend - chrczq <br> backend - oniqq1</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
                     <h5>Contacts</h5>
@@ -87,5 +88,6 @@
             </div>
         </div>
     </footer>
+
 </body>
 </html>

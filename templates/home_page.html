@@ -6,15 +6,15 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
 </head>
 <body>
 
     <nav>
         <div class="nav-wrapper container">
-            <a href="#" class="brand-logo">Dashboard</a>
+            <a class="brand-logo">Dashboard</a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('logout') }}" class="btn-flat white-text">Log Out</a></li>
+                <li><a href="{{ url_for('log_out_get') }}" class="btn-flat white-text">Log Out</a></li>
             </ul>
         </div>
     </nav>
@@ -44,7 +44,6 @@
                     </div>
                 </section>
             </div>
-
             <div class="col s12 m6">
                 <section id="favorites" class="section">
                     <h5 class="section-title">Favorites</h5>

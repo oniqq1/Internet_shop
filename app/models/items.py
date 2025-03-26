@@ -40,6 +40,38 @@ def get_item_by_id(id):
     except sqlite3.Error as error:
         print(error)
 
+def get_items():
+    try:
+        sql_con, cursor = do_connect()
+
+        sqlite_query_check_table = '''SELECT * FROM items'''
+
+
+        cursor.execute(sqlite_query_check_table)
+        sql_con.commit()
+        data_item = cursor.fetchall()
+        if data_item == None:
+            return None
+        fetch_data = [0]
+
+
+        for item in data_item:
+            data_dict = {}
+            data_dict['id'] = item[0]
+            data_dict['name'] = item[1]
+            data_dict['description'] = item[2]
+            data_dict['category'] = item[3]
+            data_dict['cost'] = item[4]
+            data_dict['photo'] = item[5]
+            fetch_data.append(data_dict)
+
+
+
+
+        return fetch_data
+    except sqlite3.Error as error:
+        print(error)
+
 
 def get_item_by_name(name):
     try:

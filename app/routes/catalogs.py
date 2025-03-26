@@ -1,5 +1,5 @@
 from app import app ,session
-from flask import render_template, redirect, jsonify
+from flask import render_template, redirect, request
 from app.models.users import check_user_by_name
 from app.models.items import get_item_by_id , get_items
 from random import randint
@@ -22,8 +22,21 @@ def main():
 
 
 @app.get('/catalog/')
-def catalog():
+def catalog_get():
     if session.get('name') == None:
         data=get_items()
         return render_template('catalog.html',data=data)
+    return redirect('/')
+
+
+@app.post('/catalog/')
+def catalog_post():
+    if session.get('name') == None:
+        search = request.form.get('search')
+        data=get_items()
+        new_data = []
+        for item in data:
+            if search in item.get('name'):
+                new_data.append(item)
+        return render_template('catalog.html',data=new_data)
     return redirect('/')

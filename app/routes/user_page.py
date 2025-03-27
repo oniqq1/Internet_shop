@@ -9,7 +9,7 @@ def user_page_get(name:str):
 
     print(name , 'name')
     print(session.get("name"))
-
+    print(session.get("rule"))
 
     if check_user_by_name(session.get("name")) == None:
         return redirect('/register/')
@@ -19,6 +19,12 @@ def user_page_get(name:str):
     if not user == None:
 
         if session.get('name') == user.get('name'):
+
+            if user.get('rule') == 'admin':
+                return render_template('admin.html', user=user)
+            if user.get('busket') == None:
+                return render_template('home_page.html', user=user)
+
             items_id = user.get('busket').split()
             items = []
             for id in items_id:
@@ -84,5 +90,6 @@ def add_product_post():
 
             add_to_table(name=name,description=description,cost=cost,category=category,photo=photo)
             return "Has been added <a href='/'>Go back</a>"
+
 
         return "You aren't administrator <a href='/'>Go back</a>"

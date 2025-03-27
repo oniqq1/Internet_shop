@@ -55,6 +55,10 @@ def sign_up_post():
     name = request.form['name']
     email = request.form['email']
     password = request.form['password']
+    password_con = request.form['password_con']
+
+    if password_con != password:
+        return render_template('sign_up.html')
 
     if not name or not password or not email:
         return render_template('sign_up.html')

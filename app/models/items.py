@@ -27,6 +27,7 @@ def get_item_by_id(id):
         data_item = cursor.fetchall()
         if data_item == None:
             return None
+        print(data_item)
         data_item = data_item[0]
 
         data_dict = {}
@@ -115,3 +116,16 @@ def add_to_table(name,description,cost,category='something',photo='https://i.pin
     except sqlite3.Error as error:
         print(error)
 
+def get_count():
+    try:
+        sql_con, cursor = do_connect()
+
+        sqlite_query_add_table = '''SELECT * FROM items'''
+
+
+        cursor.execute(sqlite_query_add_table)
+        sql_con.commit()
+
+        return len(cursor.fetchall())
+    except sqlite3.Error as error:
+        print(error)

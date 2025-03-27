@@ -141,3 +141,18 @@ def add_to_busket(name,item_id):
     except sqlite3.Error as error:
         print(error)
 
+
+def clear_busket(name):
+    try:
+        sql_con, cursor = do_connect()
+
+        sqlite_query_clear_bucket = '''UPDATE users
+                                    SET busket = ''
+                                    WHERE name=?'''
+
+
+        cursor.execute(sqlite_query_clear_bucket,(name))
+        sql_con.commit()
+        print('clear busket')
+    except sqlite3.Error as error:
+        print(error)

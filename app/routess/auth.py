@@ -2,7 +2,7 @@ import sqlite3
 import bcrypt
 from app import app , session
 from flask import render_template , request  ,redirect
-from ..models.users import check_user_by_name , add_to_table
+from ..modelss.users import check_user_by_name , add_to_table
 
 from connection import do_connect
 

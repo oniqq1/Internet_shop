@@ -1,7 +1,7 @@
 from app import app ,session
 from flask import render_template, redirect, request
-from app.models.users import check_user_by_name
-from app.models.items import get_item_by_id , get_items
+from app.modelss.users import check_user_by_name
+from app.modelss.items import get_item_by_id , get_items
 from random import randint
 
 

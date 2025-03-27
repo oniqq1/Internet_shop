@@ -9,23 +9,14 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="input-field col s8">
-                <input type="text" id="search" placeholder="Search...">
-            </div>
-            <div class="input-field col s4">
-                <select class="browser-default">
-                    <option value="disabled selected">Choose category</option>
-                    {% for category in categories %}
-                        <option value="{{ category }}">{{ category }}</option>
-                    {% endfor %}
-                </select>
+            <div class="input-field ">
+                <input  name="search" placeholder="Search...">
             </div>
         </div>
-
         <div class="row">
             {% for item in items %}
                 <div class="col s12 m6 l4">
-                    <a href="{{ url_for('item_detail', id=item.id) }}" class="card-link">
+                    <a href="{{ url_for('detail', id=item.id) }}" class="card-link">
                         <div class="card">
                             <div class="card-image">
                                 <img src="{{ item.image }}">

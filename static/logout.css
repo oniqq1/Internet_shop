@@ -46,3 +46,7 @@ button {
 button:hover {
     background: var(--brown);
 }
+
+button:hover {
+    background: var(--brown);
+}

@@ -13,10 +13,11 @@ def main():
     nums = []
     items = []
 
-    i = 0
+
     while len(items) != 3 :
 
-        rand = random.randint(1, len(get_items()))
+        rand = randint(1, len(get_items())-1)
+
 
         if not rand in nums:
             items.append(get_item_by_id(rand))

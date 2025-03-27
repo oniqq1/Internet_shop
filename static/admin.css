@@ -87,3 +87,6 @@ footer a:hover {
     text-decoration: underline;
 }
 
+button:hover {
+    background: var(--brown);
+}

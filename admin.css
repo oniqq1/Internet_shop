@@ -1,0 +1,89 @@
+:root {
+    --beige: #f4cead;
+    --brown: #6f4f37;
+    --warm-brown: #7d604b;
+    --dark-brown: #5e432f;
+    --black: #0D0D0D;
+    --white: #ffffff;
+}
+
+body {
+    background: var(--beige);
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: var(--white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+h4 {
+    text-align: center;
+    color: var(--dark-brown);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.file-field .btn {
+    background: var(--dark-brown);
+    color: var(--white);
+}
+
+.file-field .btn:hover {
+    background: var(--brown);
+}
+
+button {
+    background: var(--dark-brown) !important;
+    color: var(--white);
+}
+
+button:hover {
+    background: var(--brown);
+}
+
+.card {
+    background: var(--warm-brown);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+}
+
+.card-content {
+    color: var(--white);
+}
+
+.card-title {
+    font-weight: bold;
+    color: var(--beige);
+}
+
+.card-action {
+    text-align: right;
+}
+
+.card-action a {
+    color: var(--beige);
+}
+
+.card-action a:hover {
+    text-decoration: underline;
+}
+
+footer a {
+    color: var(--beige);
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+

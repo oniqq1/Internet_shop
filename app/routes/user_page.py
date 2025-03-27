@@ -1,7 +1,7 @@
 from app import app ,session
 from flask import render_template ,redirect ,request
-from app.modelss.users import check_user_by_name ,clear_busket
-from app.modelss.items import add_to_table , get_item_by_id
+from app.models.users import check_user_by_name ,clear_busket
+from app.models.items import add_to_table , get_item_by_id
 
 
 @app.get('/user/<name>/')

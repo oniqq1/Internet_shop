@@ -1,16 +1,14 @@
 
 # Zara remake
 Hello there!!
-
-
-<br><br><br>
+<br>
 
 It is a project for end of second semestr in course GoIteens
 This project will get more updates with time
-
+<br>
 This shop-site can used for choosing clothing and education by 
 analysis code
-
+<br>
 Here why :
 
 *  it works
@@ -29,7 +27,7 @@ Project worked [here](http://116.203.195.165:32322/) <- clickable
 [Flask](https://flask.palletsprojects.com/en/stable/) , [Materialize](https://materializecss.com/)
 
 
-
+<br><br><br>
 
 
 ## Deployment
@@ -40,7 +38,7 @@ At the start you need to clone repository
   https://github.com/oniqq1/Internet_shop.git
 ```
 After clonning you can continue instruction..
-
+<br>
 To deploy this project run first you need to install librarys
 
 ```bash
@@ -50,7 +48,7 @@ To deploy this project run first you need to install librarys
 #### flask has used for creating site and comunicate with customers
 
 #### bcrypt has used for hash passwords in database
-
+<br>
 After that start app
 
 ```bash
@@ -67,7 +65,7 @@ All done , go to link and it works
 
 For support contact us...
 
-
+<br><br><br>
 
 
 
@@ -87,7 +85,7 @@ from connection import create_table
 ```
 
 There are imports to crate app , db etc. 
-
+<br><br>
 *secret* it is created by you file to like this :
 
 ```bash
@@ -108,6 +106,7 @@ We are connecting to db and opening db by *schema*
 I think something you understood
 
 So it is end
+<br><br><br>
 ## Authors / Support
 
 To take feedback or get support you can connect with one of this persons
@@ -121,3 +120,4 @@ To take feedback or get support you can connect with one of this persons
 You can take feedback for us , only you need to contact with us !!!
 
 Special thanks to [Kostya](https://github.com/KostyaTeacher)
+<br><br>

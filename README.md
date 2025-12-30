@@ -9,22 +9,25 @@ This project will get more updates with time
 This shop-site can used for choosing clothing and education by 
 analysis code
 <br>
-Here why :
 
-*  it works
-*  Because I'm backender 😎😎
-*  А lot of work has been done
-*  Please 😟
 
 
 See soon for new info
 
 Project worked [here](http://116.203.195.165:32322/) <- clickable
 
+---
 
-## Created bcrypt
+##  Photos
 
-[Flask](https://flask.palletsprojects.com/en/stable/) , [Materialize](https://materializecss.com/)
+<img width="1000" alt="Знімок екрана 2025-12-31 001036" src="https://github.com/user-attachments/assets/3bd82c44-0826-40a3-91bd-06b3dfea80d0" />
+<img width="1000" alt="Знімок екрана 2025-12-31 001027" src="https://github.com/user-attachments/assets/29dbc603-15da-4589-bf5f-1874f3eda9ba" />
+<img width="1000" alt="Знімок екрана 2025-12-31 000959" src="https://github.com/user-attachments/assets/a21330dd-6da2-4936-b8c5-9ad218f5b75e" />
+
+
+---
+## Technologies
+[bcrypt](https://pypi.org/project/bcrypt/) , [Flask](https://flask.palletsprojects.com/en/stable/) , [Materialize](https://materializecss.com/)
 
 
 <br><br><br>
@@ -42,7 +45,7 @@ After clonning you can continue instruction..
 To deploy this project run first you need to install librarys
 
 ```bash
-  pip install flask bcrypt
+  pip install -r requirements.txt
 ```
 
 #### flask has used for creating site and comunicate with customers
